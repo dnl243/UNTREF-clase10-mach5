@@ -1,0 +1,13 @@
+body {
+  background-image: url('../img/pista.png');
+}
+#mach5 img {
+  display: inline-block;
+  position: absolute;
+  object-fit: contain;
+  border-radius: 20px;
+  margin-left: 16px;
+  margin-top: 16px;
+}
+
+
