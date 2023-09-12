@@ -1,13 +1,38 @@
-body {
+body{
   background-image: url('../img/pista.png');
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position-y: 76px;
 }
-#mach5 img {
+li img {
+  width: 60px;
+  height: 60px;
+  margin: 0 20px;
+  border: 2px solid #000;
+  border-radius: 50%;
+}
+#car img {
   display: inline-block;
   position: absolute;
   object-fit: contain;
+  width: 10vw;
   border-radius: 20px;
-  margin-left: 16px;
-  margin-top: 16px;
+  margin-left: -30px;
+  margin-top: 25px;
 }
+.right img{
+  rotate: 0deg;
+}
+.left img{
+  rotate: 180deg;
+}
+.up img{
+  rotate: -90deg;
+}
+.down img{
+  rotate: -270deg;  
+}
+
+
 
 
