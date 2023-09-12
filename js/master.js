@@ -10,17 +10,17 @@ let mTop = 0;
 let speed = 10;
 // Insertar incógnita
 car.innerHTML =
-  '<img src="../img/en-espera.jpg" alt="en-espera"></img>';
+  '<img src="./img/en-espera.jpg" alt="en-espera"></img>';
 // Selección  de vehículos
 btnMeteoro.addEventListener("click", () =>
 car.innerHTML =
-  '<img src="../img/mach5-right.jpg" alt="meteoro"></img>');
+  '<img src="./img/mach5-right.jpg" alt="meteoro"></img>');
 btnPolicia.addEventListener("click", () =>
 car.innerHTML =
-'<img src="../img/policia-right.jpg" alt="policia"></img>');
+'<img src="./img/policia-right.jpg" alt="policia"></img>');
 btnAmbulancia.addEventListener("click", () =>
 car.innerHTML =
-'<img src="../img/ambulancia-right.jpg" alt="ambulancia"></img>');
+'<img src="./img/ambulancia-right.jpg" alt="ambulancia"></img>');
 // Movimiento de vehículo
 body.addEventListener("keydown", function (evento) {
   console.log(evento);
