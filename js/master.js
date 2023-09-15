@@ -34,7 +34,7 @@ car.innerHTML =
 // Movimiento de vehículo con límite de pantalla
 body.addEventListener("keydown", function (evento) {
   console.log(evento);
-  if (evento.key === "d" && mLeft < 740) {
+  if (evento.key === "d" && mLeft < 1100) {
     moveRight();
   } else if (evento.key === "a" && mLeft > -80) {
     moveLeft();
@@ -66,7 +66,7 @@ function gameOver() {
     anotherChance.fire({
       title: 'Te lo dije!!',
       text: "¿Queres jugar denuevo?",
-      imageUrl: 'https://static.wikia.nocookie.net/doblaje/images/c/c3/68af9e99d950caf89bb1c1eff26b4639.gif/revision/latest?cb=20200725195012&path-prefix=es',
+      imageUrl: 'https://media.tenor.com/yp62lkWc5I4AAAAM/muttley-laughing.gif',
       imageWidth: 200,
       imageHeight: 175,
       imageAlt: 'Patan',
@@ -105,7 +105,7 @@ function gameOver() {
         })
       }
     })
-    }, 200);
+    }, 800);
 }
 // movimiento de vehículo
 function moveRight() {
