@@ -5,7 +5,7 @@ Swal.fire({
   confirmButtonText: '<i class="bi bi-hand-thumbs-up-fill"></i>',
 }).then((result) => {
   if (result.isConfirmed) {
-    Swal.fire('Para mover debes usar las teclas w-a-s-d', 'NO salgas de la pantalla o regresaras en ambulancia!!')
+    Swal.fire('Para mover debes usar las teclas w-a-s-d', 'NO salgas de la pantalla o regresarás en ambulancia!!')
   }
 })
 // Captura de elementos
@@ -17,7 +17,7 @@ let btnAmbulancia = document.querySelector("#ambulancia")
 // Variables de posición
 let mLeft = 0;
 let mTop = 0;
-let speed = 10;
+let speed = 1;
 // Elemento en espera
 car.innerHTML =
   '<img src="./img/en-espera.jpg" alt="en-espera"></img>';
@@ -33,19 +33,22 @@ car.innerHTML =
 '<img src="./img/ambulancia.jpg" alt="ambulancia"></img>');
 // Movimiento de vehículo con límite de pantalla
 body.addEventListener("keydown", function (evento) {
-  console.log(evento);
-  if (evento.key === "d" && mLeft < 1100) {
+  if (mLeft < 99 && evento.key === "d") {
     moveRight();
-  } else if (evento.key === "a" && mLeft > -80) {
+  } else if (mLeft > -6 && evento.key === "a") {
     moveLeft();
-  } else if (evento.key === "w" && mTop > -10) {
+  } else if (mTop > -3 && evento.key === "w") {
     moveUp();
-  } else if (evento.key === "s" && mTop < 540) {
+  } else if (mTop < 73 && evento.key === "s") {
     moveDown();
-  } else if ((mLeft = 540) || (mLeft = -80) || (mTop = -10) || (mTop = 540)) {
+  } 
+  console.log(evento);
+  if (mLeft == 99 || mLeft == -6 || mTop == -3 || mTop == 73) {
     gameOver();
+    body.removeEventListener("keydown");
   }
 });
+
 // variable Alerta (hecha por sweetalert con bootstrap)
 const anotherChance = Swal.mixin({
   customClass: {
@@ -54,7 +57,7 @@ const anotherChance = Swal.mixin({
   },
   buttonsStyling: false
 })
-// Game Over Alertas
+// Game Over
 function gameOver() {
   car.innerHTML =
   '<img src="./img/fuego.gif" alt="fuego"></img>';
@@ -62,8 +65,7 @@ function gameOver() {
   car.classList.remove("up");
   car.classList.remove("down");
   car.classList.add("right");
-  setTimeout(() => {       
-    anotherChance.fire({
+  anotherChance.fire({
       title: 'Te lo dije!!',
       text: "¿Queres jugar denuevo?",
       imageUrl: 'https://media.tenor.com/yp62lkWc5I4AAAAM/muttley-laughing.gif',
@@ -104,8 +106,7 @@ function gameOver() {
           }
         })
       }
-    })
-    }, 800);
+    });
 }
 // movimiento de vehículo
 function moveRight() {
@@ -115,7 +116,7 @@ function moveRight() {
   car.classList.add("right");
   mLeft += speed;
   console.log(mLeft);
-  car.style.marginLeft = mLeft + "px";
+  car.style.marginLeft = mLeft + "%";
 }
 function moveLeft() {
   car.classList.remove("right");
@@ -124,7 +125,7 @@ function moveLeft() {
   car.classList.add("left");
   mLeft -= speed;
   console.log(mLeft);
-  car.style.marginLeft = mLeft + "px";
+  car.style.marginLeft = mLeft + "%";
 }
 function moveUp() {
   car.classList.remove("left");
@@ -133,7 +134,7 @@ function moveUp() {
   car.classList.add("up");
   mTop -= speed;
   console.log(mTop);
-  car.style.marginTop = mTop + "px";
+  car.style.marginTop = mTop + "%";
 }
 function moveDown() {
   car.classList.remove("left");
@@ -142,5 +143,5 @@ function moveDown() {
   car.classList.add("down");
   mTop += speed;
   console.log(mTop);
-  car.style.marginTop = mTop + "px";
+  car.style.marginTop = mTop + "%";
 }
